@@ -1,0 +1,160 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\TITLE{\bfseries Title}
+\def\AUTHOR{Author}
+\def\DATE{Date}
+\def\ABSTRACT{
+  Short Summary.
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,twoside]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\pagestyle{headings}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\topmargin}{-1.6cm}
+\setlength{\textheight}{24cm}
+\setlength{\textwidth}{16cm}
+%\allowdisplaybreaks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\arxivref[1]{\href{http://arxiv.org/abs/#1}{\ttfamily arXiv:#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand\N{{\mathbb N}} % natural numbers
+\newcommand\Z{{\mathbb Z}} % rational integers
+\newcommand\F{{\mathbb F}} % finite field
+\newcommand\Q{{\mathbb Q}} % rational numbers
+\newcommand\R{{\mathbb R}} % real numbers
+\newcommand\C{{\mathbb C}} % complex numbers
+%\renewcommand\P{{\mathbb P}} % projective spaces
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% theorem environments
+%
+\theoremstyle{plain} % bold header and slanted body
+%\theoremstyle{definition} % bold header and normal body
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem*{prop*}{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem*{cor*}{Corollary}
+\newtheorem{example}[theorem]{Example}
+\newtheorem*{example*}{Example}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem*{axiom*}{Axiom}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem*{problem*}{Problem}
+\newtheorem{summary}[theorem]{Summary}
+\newtheorem*{summary*}{Summary}
+\newtheorem{guide}[theorem]{Guide}
+\newtheorem*{guide*}{Guide}
+%
+\theoremstyle{definition} % bold header and normal body
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem*{definition*}{Definition}
+%
+%\theoremstyle{remark} % slanted header and normal body
+\theoremstyle{definition} % bold header and normal body
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark*}{Remark}
+%
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+%
+% refs
+%
+\newcommand\secref[1]{Section \ref{#1}}
+\newcommand\theoremref[1]{Theorem \ref{#1}}
+\newcommand\propref[1]{Proposition \ref{#1}}
+\newcommand\lemmaref[1]{Lemma \ref{#1}}
+\newcommand\corref[1]{Corollary \ref{#1}}
+\newcommand\exampleref[1]{Example \ref{#1}}
+\newcommand\axiomref[1]{Axiom \ref{#1}}
+\newcommand\problemref[1]{Problem \ref{#1}}
+\newcommand\summaryref[1]{Summary \ref{#1}}
+\newcommand\guideref[1]{Guide \ref{#1}}
+\newcommand\definitionref[1]{Definition \ref{#1}}
+\newcommand\remarkref[1]{Remark \ref{#1}}
+%
+\newcommand\figureref[1]{Figure \ref{#1}}
+\newcommand\tableref[1]{Table \ref{#1}}
+%
+% proof environment without \qed
+%
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+%\newenvironment{Proof}[1][\Proofname]{\par
+  \normalfont
+  \topsep6\p@\@plus6\p@ \trivlist
+  \item[\hskip\labelsep{\bfseries #1}\@addpunct{\bfseries.}]\ignorespaces
+}{%
+  \endtrivlist
+}
+\renewcommand{\proofname}{Proof}
+%\newcommand{\Proofname}{Proof}
+\makeatother
+%
+% \qed
+%
+\makeatletter
+\def\BOXSYMBOL{\RIfM@\bgroup\else$\bgroup\aftergroup$\fi
+  \vcenter{\hrule\hbox{\vrule height.85em\kern.6em\vrule}\hrule}\egroup}
+\makeatother
+\newcommand{\BOX}{%
+  \ifmmode\else\leavevmode\unskip\penalty9999\hbox{}\nobreak\hfill\fi
+  \quad\hbox{\BOXSYMBOL}}
+\renewcommand\qed{\BOX}
+%\newcommand\QED{\BOX}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\TITLE}
+\author{\AUTHOR}
+\date{\DATE}
+\maketitle
+\begin{abstract}
+  \ABSTRACT
+\end{abstract}
+\tableofcontents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\setcounter{section}{-1} % First section number = 0
+
+\section{First Section}
+
+\begin{theorem}[hoge]
+ Theorem with number.
+ \qed
+\end{theorem}
+
+\begin{proof}
+ The last box is manually inserted.
+ \qed
+\end{proof}
+
+\begin{theorem*}[hoge]
+ Theorem without number.
+ \qed
+\end{theorem*}
+
+\begin{proof}[Proof of Theorem without number]
+ The last box is manually inserted.
+ \qed
+\end{proof}
+
+\begin{definition}[hoge]
+ Definition with number.
+ \qed
+\end{definition}
+
+\begin{remark}[moge]
+ Remark with number.
+ \qed
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
